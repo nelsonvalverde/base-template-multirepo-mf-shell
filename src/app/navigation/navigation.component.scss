@@ -1,0 +1,18 @@
+::ng-deep {
+  .nav-content {
+    box-shadow: 0px 4px 8px -7px rgba(0, 0, 0, 0.5);
+    padding: .8rem 1.5rem;
+    >.input-search{
+      >input{
+        border: 1px solid var(--primary-50);
+        &:hover{
+          border-color: var(--primary-50);
+        }
+        &:focus{
+          border-color: var(--primary-50);
+          box-shadow: 0 0 0 0.2rem  var(--primary-50);
+        }
+      }
+    }
+  }
+}

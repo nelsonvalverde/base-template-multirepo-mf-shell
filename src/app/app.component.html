@@ -1,0 +1,13 @@
+<div class="app">
+  <div class="menu" [ngClass]="{ 'is-expanded': isExpanded() }">
+    <app-menu (changeStatusExpanded)="changeExpanded($event)" />
+  </div>
+  <div class="content">
+    <nav class="nav">
+      <app-navigation />
+    </nav>
+    <div class="content-body">
+      <router-outlet />
+    </div>
+  </div>
+</div>

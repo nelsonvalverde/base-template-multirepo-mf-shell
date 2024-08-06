@@ -1,0 +1,8 @@
+@function hexToRgba($color, $alpha) {
+  @return rgba(
+    red($color),
+    green($color),
+    blue($color),
+    $alpha
+  );
+}

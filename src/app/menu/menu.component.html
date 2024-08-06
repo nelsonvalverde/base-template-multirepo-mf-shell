@@ -1,0 +1,33 @@
+<div class="menu-content">
+  <div class="menu-content-header">
+    <div class="logo">
+      <img src="assets/logo.png" alt="logo" />
+    </div>
+    <div class="btn-action">
+      <button
+        class="icon"
+        [class]="iconExpanded"
+        (click)="changeExpanded()"
+      ></button>
+    </div>
+  </div>
+  <div class="menu-content-body">
+    <p-panelMenu [model]="items()">
+      <ng-template pTemplate="item" let-item>
+        <a pRipple class="menu-item">
+          <em [class]="item.icon + ' text-primary'"></em>
+          <span class="ml-2">
+            {{ item.label }}
+          </span>
+          @if (item.badge) {
+          <p-badge [value]="item.badge" />
+          } @if (item.shortcut) {
+          <span *ngIf="item.shortcut">
+            {{ item.shortcut }}
+          </span>
+          }
+        </a>
+      </ng-template>
+    </p-panelMenu>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+$menu-width-expanded: 17rem;
+$menu-width: 3.85rem;
+
+::ng-deep{
+  .app {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    .menu-item {
+      > span {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+    }
+    > .menu {
+      transition: width 0.5s ease-in-out;
+      width: $menu-width-expanded;
+      &:not(.is-expanded) {
+        width: 3.85rem;
+        .menu-content {
+          > .menu-content-body {
+            .p-panelmenu {
+              > .p-panelmenu-panel {
+                > .p-panelmenu-header {
+                  > .p-panelmenu-header-content {
+                    > .menu-item {
+                      > span {
+                        width: 0;
+                        opacity: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    > .content {
+      &:not(:has( >.menu.is-expanded)){
+        width: calc(99.9% - $menu-width);
+      }
+    }
+  }
+}
+

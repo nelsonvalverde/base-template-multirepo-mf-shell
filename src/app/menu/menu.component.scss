@@ -1,0 +1,80 @@
+@mixin menuItem() {
+  &:hover {
+    border: 1px solid var(--primary-30);
+    color: var(--dark-color);
+    background: var(--primary-50);
+  }
+  > .menu-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}
+
+::ng-deep {
+  .menu-content {
+    height: 100%;
+    box-shadow: 4px 0px 8px -7px rgba(0, 0, 0, 0.5);
+    > .menu-content-header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      > .logo {
+        >img{
+          width: 100%;
+          height: 24px;
+        }
+      }
+
+      > .btn-action {
+        > .icon {
+          color: var(--primary-color);
+          border: unset;
+          background: unset;
+          cursor: pointer;
+          padding: 0;
+        }
+      }
+    }
+
+    > .menu-content-body {
+      margin-top: 2.5rem;
+      padding: 0 0.5rem;
+      .p-panelmenu {
+        > .p-panelmenu-panel {
+          margin-bottom: 0.8rem;
+          .p-panelmenu-content {
+            padding: 0.5rem 1rem;
+            @include menuItem();
+            .p-menu-item {
+              background-color: unset;
+            }
+          }
+          > .p-panelmenu-header {
+            > .p-panelmenu-header-content {
+              border: unset;
+              color: unset;
+              background: unset;
+              @include menuItem();
+            }
+          }
+          > .p-toggleable-content {
+            > .p-panelmenu-content {
+              border: unset;
+              margin-top: 0.4rem;
+              .p-submenu-list {
+                > .p-menuitem {
+                  cursor: pointer;
+                  > .p-menuitem-content {
+                    background-color: unset;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

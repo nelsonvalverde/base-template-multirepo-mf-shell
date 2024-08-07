@@ -65,6 +65,7 @@
 			{
                 "label": "run_workspace",
                 "dependsOn": [
+                    "run_mf-auth",
                     "run_mf-dashboard",
                     "run_mf-orders",
                     "run_mf-products",

@@ -1,12 +1,11 @@
 $menu-width-expanded: 17rem;
 $menu-width: 3.85rem;
 
-::ng-deep{
+::ng-deep {
   .app {
     display: flex;
     height: 100%;
     width: 100%;
-
     .menu-item {
       > span {
         opacity: 1;
@@ -16,12 +15,15 @@ $menu-width: 3.85rem;
     > .menu {
       transition: width 0.5s ease-in-out;
       width: $menu-width-expanded;
+      height: 100%;
+      background-color: var(--primary-10);
       &:not(.is-expanded) {
         width: 3.85rem;
         .menu-content {
           > .menu-content-body {
             .p-panelmenu {
               > .p-panelmenu-panel {
+                position: relative;
                 > .p-panelmenu-header {
                   > .p-panelmenu-header-content {
                     > .menu-item {
@@ -32,6 +34,22 @@ $menu-width: 3.85rem;
                     }
                   }
                 }
+                > .p-toggleable-content {
+                  position: absolute;
+                  left: 128%;
+                  top: 0;
+                  > .p-panelmenu-content {
+                    padding: 0;
+                    // .p-submenu-list {
+                    //   > .p-menuitem {
+                    //     > .p-menuitem-content {
+                    //       > .menu-item {
+                    //       }
+                    //     }
+                    //   }
+                    // }
+                  }
+                }
               }
             }
           }
@@ -39,10 +57,17 @@ $menu-width: 3.85rem;
       }
     }
     > .content {
-      &:not(:has( >.menu.is-expanded)){
+      // background-color: var(--primary-10);
+      &:not(:has(> .menu.is-expanded)) {
         width: calc(99.9% - $menu-width);
       }
     }
   }
+  @media (max-width: 767.98px) {
+    .app {
+      >.menu{
+        position: fixed;
+      }
+    }
+  }
 }
-

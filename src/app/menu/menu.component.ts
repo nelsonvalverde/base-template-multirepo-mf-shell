@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, Signal, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output, Signal, signal, WritableSignal } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { BadgeModule } from 'primeng/badge';
 import { RippleModule } from 'primeng/ripple';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,8 +17,8 @@ import { InputTextModule } from 'primeng/inputtext';
 })
 export class MenuComponent {
 
-  isExpanded: WritableSignal<boolean> = signal(true);
-  @Output() changeStatusExpanded: EventEmitter<boolean> = new EventEmitter<boolean>();
+  private readonly _appService = inject(AppService);
+
   items: Signal<MenuItem[]> = signal([
     {
       label: 'Home',
@@ -38,17 +39,36 @@ export class MenuComponent {
         {
           label: 'Information',
           icon: 'pi pi-user-edit'
+        },
+        {
+          label: 'Seguridad',
+          icon: 'pi pi-user-edit',
+          items: [
+            {
+              label: 'Test asd asda dasd asdads',
+              icon: 'pi pi-user-edit',
+              items: [
+                {
+                  label: 'Test asd asda dasd asdads',
+                  icon: 'pi pi-user-edit',
+                },
+                {
+                  label: 'Test asd asda dasd asdads',
+                  icon: 'pi pi-user-edit',
+                }
+              ]
+            }
+          ]
         }
       ]
     }
   ]);
 
   changeExpanded(): void {
-    this.isExpanded.set(!this.isExpanded());
-    this.changeStatusExpanded.emit(this.isExpanded());
+    this._appService.changeStatusExpanded();
   }
 
   get iconExpanded(): string {
-    return this.isExpanded() ? 'pi pi-chevron-left' : 'pi pi-chevron-right';
+    return this._appService.menuIsExpanded ? 'pi pi-chevron-left' : 'pi pi-chevron-right';
   }
 }

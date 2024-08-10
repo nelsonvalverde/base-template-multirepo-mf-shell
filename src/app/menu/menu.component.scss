@@ -1,17 +1,22 @@
 @mixin menuItem() {
+  display: flex;
   &:hover {
     border: 1px solid var(--primary-30);
     color: var(--dark-color);
-    background: var(--primary-50);
   }
   > .menu-item {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    width: 12rem;
+    margin-top: 0.25rem;
+    width: 100%;
     > span {
       font-size: small;
+    }
+    &:hover{
+      background: var(--primary-50);
+      border-radius: 10px;
     }
   }
 }
@@ -29,6 +34,7 @@
   .menu-content {
     height: 100%;
     box-shadow: 4px 0px 8px -7px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
     > .menu-content-header {
       padding: 1rem 1.5rem;
       display: flex;
@@ -42,13 +48,12 @@
     }
 
     > .menu-content-body {
-      margin-top: 2.5rem;
-      padding: 0 0.5rem;
+      margin-top: 1rem;
+      padding: 0 .85rem;
       .p-panelmenu {
         > .p-panelmenu-panel {
           margin-bottom: 0.8rem;
           .p-panelmenu-content {
-            padding: 0.5rem 1rem;
             @include menuItem();
             .p-menu-item {
               background-color: unset;
@@ -63,6 +68,7 @@
             }
           }
           > .p-toggleable-content {
+            margin-left: 1rem;
             > .p-panelmenu-content {
               border: unset;
               .p-submenu-list {

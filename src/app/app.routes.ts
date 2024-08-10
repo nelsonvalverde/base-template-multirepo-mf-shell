@@ -5,10 +5,10 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('mf-dashboard/routes').then(mf => mf.routes),
-    title: 'Dashboard',
+    title: 'dashboard',
   },
   {
-    path: 'Dashboard',
+    path: 'dashboard',
     loadChildren: () => import('mf-dashboard/routes').then(mf => mf.routes),
     title: 'Dashboard'
   },

@@ -1,1 +1,12 @@
-@import './shared/sass/main.scss';
+@import "primeng/resources/primeng.css";
+@import 'primeflex/primeflex.scss';
+@import "primeicons/primeicons.css";
+@import 'primeng/resources/themes/lara-light-teal/theme.css';
+
+html, body {
+  height: 100%; /* Asegura que html y body ocupen todo el alto del viewport */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--surface-ground);
+}

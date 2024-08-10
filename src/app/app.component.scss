@@ -23,7 +23,6 @@ $menu-width: 3.85rem;
           > .menu-content-body {
             .p-panelmenu {
               > .p-panelmenu-panel {
-                position: relative;
                 > .p-panelmenu-header {
                   > .p-panelmenu-header-content {
                     > .menu-item {
@@ -35,10 +34,7 @@ $menu-width: 3.85rem;
                   }
                 }
                 > .p-toggleable-content {
-                  position: absolute;
-                  left: 128%;
-                  top: 0;
-                  width: $menu-width-expanded;
+                  width: 0;
                   > .p-panelmenu-content {
                     padding: 0;
                   }

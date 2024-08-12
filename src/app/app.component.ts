@@ -5,7 +5,7 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { CommonModule } from '@angular/common';
 import { AppService } from './app.service';
 import { PanelModule } from 'primeng/panel';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @Component({
@@ -20,24 +20,31 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 export class AppComponent {
 
   private readonly _appService = inject(AppService);
+  private readonly primengConfig = inject(PrimeNGConfig);
 
   get menuIsExpanded(): boolean {
     return this._appService.menuIsExpanded;
   }
 
-  items: MenuItem[] | undefined;
-
-  home: MenuItem | undefined;
-
   ngOnInit() {
-      this.items = [
-          { label: 'Electronics' },
-          { label: 'Computer' },
-          { label: 'Accessories' },
-          { label: 'Keyboard' },
-          { label: 'Wireless' }
-      ];
+    this.setRippleConfig();
+    this.setTranslationConfig();
+  }
 
-      this.home = { icon: 'pi pi-home', routerLink: '/' };
+  private setRippleConfig(): void {
+    this.primengConfig.ripple = true;
+  }
+
+  private setTranslationConfig(): void {
+    this.primengConfig.setTranslation({
+      accept: 'Aceptar',
+      reject: 'Cancelar',
+      clear: 'Limpiar',
+      matchAll: 'Combinar todo',
+      dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'],
+      dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb'],
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+
+    });
   }
 }

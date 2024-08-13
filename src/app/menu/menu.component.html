@@ -16,7 +16,7 @@
       <ng-template pTemplate="item" let-item>
         <a pRipple class="menu-item">
           <em [class]="item.icon + ' text-primary'"></em>
-          <span class="ml-2">
+          <span class="menu-item-label">
             {{ item.label }}
           </span>
           @if (item.badge) {

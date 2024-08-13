@@ -8,14 +8,13 @@
     padding: 0.5rem 0.5rem;
     cursor: pointer;
     display: flex;
-    align-items: center;
     margin-top: 0.25rem;
     width: 100%;
     > span {
       font-size: small;
     }
     &:hover{
-      background: var(--primary-50);
+      background: var(--highlight-bg);
       border-radius: 10px;
     }
   }
@@ -23,6 +22,7 @@
 
 ::ng-deep {
   .btn-expanded {
+    margin-right: 1.5rem;
     > .icon {
       color: var(--primary-color);
       border: unset;

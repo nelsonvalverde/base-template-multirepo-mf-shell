@@ -1,5 +1,5 @@
 $menu-width-expanded: 13.2rem;
-$menu-width-small: 3.5rem;
+$menu-width-small: 3.6rem;
 
 ::ng-deep {
   .app {
@@ -10,6 +10,9 @@ $menu-width-small: 3.5rem;
       > span {
         opacity: 1;
         transition: opacity 0.1s ease-out;
+      }
+      > .menu-item-label {
+        margin-left: 1rem;
       }
     }
     > .menu {
@@ -31,6 +34,9 @@ $menu-width-small: 3.5rem;
                         width: 0;
                         opacity: 0;
                       }
+                      > .menu-item-label {
+                        margin-left: 0;
+                      }
                     }
                   }
                 }
@@ -51,6 +57,7 @@ $menu-width-small: 3.5rem;
             > .p-panelmenu-panel {
               > .p-toggleable-content {
                 > .p-panelmenu-content {
+                  background: transparent;
                   > .p-element {
                     width: 100%;
                   }

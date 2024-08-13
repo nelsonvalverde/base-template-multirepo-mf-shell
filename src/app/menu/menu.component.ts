@@ -26,7 +26,23 @@ export class MenuComponent {
     },
     {
       label: 'Products',
-      icon: 'pi pi-tag'
+      icon: 'pi pi-tag',
+      items: [
+        {
+          label: 'Test asd asda dasd asdads',
+          icon: 'pi pi-user-edit',
+          items: [
+            {
+              label: 'Test asd asda dasd asdads',
+              icon: 'pi pi-user-edit',
+            },
+            {
+              label: 'Test asd asda dasd asdads',
+              icon: 'pi pi-user-edit',
+            }
+          ]
+        }
+      ]
     },
     {
       label: 'Orders',
@@ -68,7 +84,19 @@ export class MenuComponent {
     this._appService.changeStatusExpanded();
   }
 
+  selectMenuItem(): void {
+    if (this.requiredExpanded) {
+      this.changeExpanded();
+      return;
+    }
+    console.info("Menu seleccionado");
+  }
+
   get iconExpanded(): string {
     return this._appService.menuIsExpanded ? 'pi pi-chevron-left' : 'pi pi-chevron-right';
+  }
+
+  get requiredExpanded(): boolean {
+    return !this._appService.menuIsExpanded;
   }
 }

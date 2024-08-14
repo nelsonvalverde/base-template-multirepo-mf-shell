@@ -10,9 +10,9 @@
     display: flex;
     margin-top: 0.25rem;
     width: 100%;
-    > span {
-      font-size: small;
-    }
+    // > span {
+    //   font-size: small;
+    // }
     &:hover{
       background: var(--highlight-bg);
       border-radius: 10px;

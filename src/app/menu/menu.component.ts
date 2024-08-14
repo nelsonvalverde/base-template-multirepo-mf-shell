@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output, Signal, signal, WritableSignal } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { ChangeDetectionStrategy, Component, inject, Signal, signal } from '@angular/core';
+import { MenuItem, PrimeIcons } from 'primeng/api';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { BadgeModule } from 'primeng/badge';
 import { RippleModule } from 'primeng/ripple';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -18,65 +19,23 @@ import { AppService } from '../app.service';
 export class MenuComponent {
 
   private readonly _appService = inject(AppService);
+  private readonly _router = inject(Router);
 
   items: Signal<MenuItem[]> = signal([
     {
-      label: 'Home',
-      icon: 'pi pi-home'
+      label: 'Dashboard',
+      icon: PrimeIcons.CHART_BAR,
+      url: '/dashboard'
     },
     {
       label: 'Products',
-      icon: 'pi pi-tag',
-      items: [
-        {
-          label: 'Test asd asda dasd asdads',
-          icon: 'pi pi-user-edit',
-          items: [
-            {
-              label: 'Test asd asda dasd asdads',
-              icon: 'pi pi-user-edit',
-            },
-            {
-              label: 'Test asd asda dasd asdads',
-              icon: 'pi pi-user-edit',
-            }
-          ]
-        }
-      ]
+      icon: PrimeIcons.TAG,
+      url: '/products'
     },
     {
       label: 'Orders',
-      icon: 'pi pi-list'
-    },
-    {
-      label: 'Profile',
-      icon: 'pi pi-user',
-      items: [
-        {
-          label: 'Information',
-          icon: 'pi pi-user-edit'
-        },
-        {
-          label: 'Seguridad',
-          icon: 'pi pi-user-edit',
-          items: [
-            {
-              label: 'Test asd asda dasd asdads',
-              icon: 'pi pi-user-edit',
-              items: [
-                {
-                  label: 'Test asd asda dasd asdads',
-                  icon: 'pi pi-user-edit',
-                },
-                {
-                  label: 'Test asd asda dasd asdads',
-                  icon: 'pi pi-user-edit',
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      icon: PrimeIcons.LIST_CHECK,
+      url: '/orders'
     }
   ]);
 
@@ -84,12 +43,15 @@ export class MenuComponent {
     this._appService.changeStatusExpanded();
   }
 
-  selectMenuItem(): void {
+  selectMenuItem(menuItem: MenuItem): void {
     if (this.requiredExpanded) {
       this.changeExpanded();
       return;
     }
-    console.info("Menu seleccionado");
+    if (menuItem.url) {
+      this._router.navigate([menuItem.url])
+    }
+
   }
 
   get iconExpanded(): string {

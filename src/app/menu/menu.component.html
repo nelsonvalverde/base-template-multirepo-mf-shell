@@ -14,7 +14,7 @@
   <div class="menu-content-body">
     <p-panelMenu [model]="items()">
       <ng-template pTemplate="item" let-item>
-        <a pRipple class="menu-item" (click)="selectMenuItem()">
+        <a pRipple class="menu-item" (click)="selectMenuItem(item)">
           <em [class]="item.icon + ' text-primary'"></em>
           <span class="menu-item-label">
             {{ item.label }}

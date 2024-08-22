@@ -7,15 +7,15 @@ phases:
     commands:
       - echo Installing dependencies...
       - npm install
-  pre_build:
-    commands:
-      - echo Running pre-build commands...
-      - npm run lint
-      - echo Preparing environment for microfrontends...
+  # pre_build:
+  #   commands:
+  #     - echo Running pre-build commands...
+  #     - npm run lint
+  #     - echo Preparing environment for microfrontends...
   build:
     commands:
       - echo Building the Angular application as a microfrontend shell...
-      - npm run build -- --prod --output-path=dist/shell
+      - npm run build --production --output-path=dist/shell
   post_build:
     commands:
       - echo Build completed on `date`

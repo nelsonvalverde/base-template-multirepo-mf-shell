@@ -18,16 +18,13 @@ steps:
 - script: npm install
   displayName: 'install dependencies'
 
-- script: |
-    npm run build --production
-    ls
-    mv dist/shell '$(Build.ArtifactStagingDirectory)'
+- script: npm run build --production
   displayName: 'build'
 
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: 'dist/shell'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 

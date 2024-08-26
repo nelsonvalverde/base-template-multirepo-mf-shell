@@ -18,7 +18,7 @@ steps:
 - script: npm install
   displayName: 'install dependencies'
 
-- script: npm run build --base-href "/shell/" --production 
+- script: npm run build --production 
   displayName: 'build'
 
 - task: ArchiveFiles@2

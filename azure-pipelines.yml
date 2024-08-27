@@ -22,11 +22,11 @@ steps:
        npm | "$(Agent.OS)"
     path: $(Build.SourcesDirectory)/node_modules
   displayName: Cache npm
-  
+
 - script: npm install
   displayName: 'install dependencies'
 
-- script: npm run build --production 
+- script: npm run build --production
   displayName: 'build'
 
 - task: ArchiveFiles@2
@@ -36,6 +36,7 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/build.zip'
     replaceExistingArchive: true
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/build.zip'

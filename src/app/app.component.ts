@@ -5,7 +5,7 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { CommonModule } from '@angular/common';
 import { AppService } from './app.service';
 import { PanelModule } from 'primeng/panel';
-import { MenuItem, PrimeNGConfig } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @Component({

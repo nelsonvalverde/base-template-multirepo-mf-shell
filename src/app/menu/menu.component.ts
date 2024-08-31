@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, Signal, signal } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { MenuItem, PrimeIcons } from 'primeng/api';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { BadgeModule } from 'primeng/badge';
@@ -13,8 +13,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [PanelMenuModule, BadgeModule, RippleModule, CommonModule, InputTextModule],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
 

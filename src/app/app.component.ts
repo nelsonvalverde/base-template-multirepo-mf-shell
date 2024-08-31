@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { NavigationComponent } from "./navigation/navigation.component";
@@ -15,7 +15,6 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [AppService],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
 
